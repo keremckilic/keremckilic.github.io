@@ -27,8 +27,8 @@ const { metadata } = Astro.props;
   */
   }
   {Astro.slots.has('announcement') ? <slot name="announcement" /> : null}
-  {Astro.slots.has('header') ? <slot name="header" /> : <Header {...headerData} isSticky showToggleTheme />}
-  <main class="flex-1">
+  {Astro.slots.has('header') ? <slot name="header" /> : <Header {...headerData} isSticky />}
+  <main class="flex-1 text-lg leading-relaxed">
     <slot />
   </main>
   {Astro.slots.has('footer') ? <slot name="footer" /> : <Footer {...footerData} />}

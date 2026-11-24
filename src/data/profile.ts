@@ -3,17 +3,15 @@
 
 export const profile = {
   name: 'Kerem Kılıç',
-  // Respelling and IPA of the Turkish name. Confirm before publishing.
-  pronunciationRespelling: 'KEH-rem kuh-LUHCH',
-  pronunciationIpa: '/ˈceɾem kɯˈlɯtʃ/',
+  pronunciationIpa: '/keˈɾem kɯˈlɯtʃ/',
   // Put the profile photo in `public/` and point this at it, e.g. '/profile.jpg'.
   photo: '/profile-placeholder.svg',
   photoAlt: 'Portrait of Kerem Kılıç',
-  // Leave empty until you decide which address to show; the page then shows a visible reminder.
-  email: '',
+  // Written out in words so scrapers cannot read it; shown as plain text, not a mailto link.
+  emailDisplay: 'kkilic at ethz dot ch',
   links: [
-    { label: 'GitHub', href: 'https://github.com/keremckilic', icon: 'tabler:brand-github' },
-    { label: 'LinkedIn', href: 'https://linkedin.com/in/kerem-kilic', icon: 'tabler:brand-linkedin' },
+    { label: 'GitHub', href: 'https://github.com/keremckilic' },
+    { label: 'LinkedIn', href: 'https://linkedin.com/in/kerem-kilic' },
   ],
 };
 

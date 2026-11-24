@@ -6,43 +6,25 @@
 
 <style is:inline>
   :root {
-    --aw-font-sans: var(--font-inter);
-    --aw-font-serif: var(--font-inter);
-    --aw-font-heading: var(--font-inter);
+    --aw-font-sans: var(--font-source-serif);
+    --aw-font-serif: var(--font-source-serif);
+    --aw-font-heading: var(--font-source-serif);
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* Monochrome: links and accents stay black; emphasis comes from underlines and weight. */
+    --aw-color-primary: rgb(0 0 0);
+    --aw-color-secondary: rgb(64 64 64);
+    --aw-color-accent: rgb(64 64 64);
 
     --aw-color-text-heading: rgb(0 0 0);
     --aw-color-text-default: rgb(16 16 16);
     --aw-color-text-muted: rgb(16 16 16 / 66%);
-    --aw-color-bg-page: rgb(255 255 255);
+    /* Off-white page background. Change this one value to experiment. */
+    --aw-color-bg-page: #faf9f6;
 
     --aw-color-bg-page-dark: rgb(8 9 10);
 
     ::selection {
-      background-color: lavender;
-    }
-  }
-
-  .dark {
-    --aw-font-sans: var(--font-inter);
-    --aw-font-serif: var(--font-inter);
-    --aw-font-heading: var(--font-inter);
-
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
-
-    --aw-color-text-heading: rgb(247, 248, 248);
-    --aw-color-text-default: rgb(229 236 246);
-    --aw-color-text-muted: rgb(229 236 246 / 66%);
-    --aw-color-bg-page: rgb(8 9 10);
-
-    ::selection {
-      background-color: black;
-      color: snow;
+      background-color: rgb(0 0 0 / 14%);
     }
   }
 </style>

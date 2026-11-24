@@ -1,5 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
 import { profile, about, news } from '~/data/profile';
 
@@ -8,80 +7,77 @@ const metadata = {
   ignoreTitleTemplate: true,
   description: `${profile.name}: master's student in control, learning and robotics at ETH Zurich.`,
 };
+
+// Section grid: a narrow label column on the left, content on the right.
+const row = 'grid gap-y-3 md:grid-cols-[10rem_1fr] md:gap-x-8';
+const label = 'text-xl font-bold leading-tight text-heading';
 ---
 
 <Layout metadata={metadata}>
-  <div class="mx-auto max-w-3xl px-4 md:px-6 pt-10 md:pt-16 pb-16 md:pb-24">
+  <div class="mx-auto max-w-4xl px-4 md:px-6 pt-[12vh] pb-16 md:pb-24">
     <!-- Top: name and pronunciation on the left, photo on the right -->
     <header class="flex items-start justify-between gap-6">
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-heading">{profile.name}</h1>
-        <p class="mt-3 text-muted">
-          <span class="block sm:inline">{profile.pronunciationRespelling}</span>
-          <span class="mx-1.5 hidden sm:inline" aria-hidden="true">·</span>
-          <span class="block sm:inline font-mono text-sm whitespace-nowrap">{profile.pronunciationIpa}</span>
+        <h1 class="text-5xl md:text-7xl font-bold leading-none tracking-tight text-heading">{profile.name}</h1>
+        <p class="mt-4 text-muted">
+          <span class="font-mono text-sm whitespace-nowrap">{profile.pronunciationIpa}</span>
         </p>
       </div>
       <img
         src={profile.photo}
         alt={profile.photoAlt}
         width="160"
-        height="160"
-        class="h-28 w-28 md:h-40 md:w-40 shrink-0 rounded-full object-cover"
+        height="200"
+        class="h-32 w-24 md:h-52 md:w-40 shrink-0 object-cover"
       />
     </header>
 
-    <section id="about" class="mt-12 scroll-mt-20">
-      <h2 class="text-2xl font-bold text-heading">About me</h2>
-      <div class="mt-4 space-y-4 text-default">
-        {about.map((p) => <p>{p}</p>)}
-      </div>
-    </section>
+    <div class="mt-16 md:mt-24 space-y-12 md:space-y-14">
+      <section id="about" class={`${row} scroll-mt-20`}>
+        <h2 class={label}>About me</h2>
+        <div class="space-y-4 text-default">
+          {about.map((p) => <p>{p}</p>)}
+        </div>
+      </section>
 
-    <section id="news" class="mt-12 scroll-mt-20">
-      <h2 class="text-2xl font-bold text-heading">Recent news</h2>
-      <ul class="mt-4 space-y-3">
-        {
-          news.map((n) => (
-            <li class="flex flex-col sm:flex-row gap-x-6">
-              <span class="sm:w-24 shrink-0 text-sm text-muted sm:pt-0.5">{n.date}</span>
-              <span class="text-default">{n.text}</span>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-
-    <section id="contact" class="mt-12 scroll-mt-20">
-      <h2 class="text-2xl font-bold text-heading">Reaching out</h2>
-      <p class="mt-4 text-default">
-        I am happy to hear from people working on control, optimization and learning. The easiest way to reach me is by
-        email.
-      </p>
-      <ul class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
-        <li class="flex items-center gap-2">
-          <Icon name="tabler:mail" class="h-5 w-5" />
+      <section id="news" class={`${row} scroll-mt-20`}>
+        <h2 class={label}>Recent news</h2>
+        <ul class="space-y-3">
           {
-            profile.email ? (
-              <a href={`mailto:${profile.email}`} class="underline hover:text-link">
-                {profile.email}
-              </a>
-            ) : (
-              <span class="text-muted italic">[email address to be added]</span>
-            )
+            news.map((n) => (
+              <li class="grid gap-x-6 sm:grid-cols-[6.5rem_1fr]">
+                <span class="text-sm text-muted sm:pt-1">{n.date}</span>
+                <span class="text-default">{n.text}</span>
+              </li>
+            ))
           }
-        </li>
-        {
-          profile.links.map((l) => (
-            <li class="flex items-center gap-2">
-              <Icon name={l.icon} class="h-5 w-5" />
-              <a href={l.href} class="underline hover:text-link" rel="noopener">
-                {l.label}
-              </a>
+        </ul>
+      </section>
+
+      <section id="contact" class={`${row} scroll-mt-20`}>
+        <h2 class={label}>Reaching out</h2>
+        <div>
+          <p class="text-default">
+            I am happy to hear from people working on control, optimization and learning. The easiest way to reach me is
+            by email.
+          </p>
+          <ul class="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <li>
+              <span class="text-muted mr-1.5">Email via</span>
+              {profile.emailDisplay}
             </li>
-          ))
-        }
-      </ul>
-    </section>
+            {
+              profile.links.map((l) => (
+                <li>
+                  <a href={l.href} class="hover:underline" rel="noopener">
+                    {l.label}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+    </div>
   </div>
 </Layout>

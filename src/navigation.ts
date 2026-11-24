@@ -10,10 +10,5 @@ export const headerData = {
 };
 
 export const footerData = {
-  links: [],
-  secondaryLinks: [],
-  socialLinks: profile.links.map((l) => ({ ariaLabel: l.label, icon: l.icon, href: l.href })),
-  footNote: `
-    © ${new Date().getFullYear()} ${profile.name} · Built with <a class="underline" href="https://github.com/onwidget/astrowind">AstroWind</a>.
-  `,
+  footNote: `© ${new Date().getFullYear()} ${profile.name} · Built with <a class="underline" href="https://github.com/onwidget/astrowind">AstroWind</a>.`,
 };

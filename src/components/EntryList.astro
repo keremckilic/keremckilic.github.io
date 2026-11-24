@@ -8,24 +8,25 @@ export interface Props {
 const { entries } = Astro.props;
 ---
 
-<ul class="space-y-8">
+<ul class="space-y-10">
   {
     entries.map((e) => (
-      <li>
-        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-6">
-          <h3 class="text-lg font-semibold text-heading">
+      <li class="grid gap-y-1 md:grid-cols-[10rem_1fr] md:gap-x-8">
+        <span class="text-sm text-muted md:pt-1.5">{e.dates}</span>
+        <div>
+          {/* Hanging indent: first line flush left, wrapped lines indented. */}
+          <h3 class="pl-5 -indent-5 text-xl font-bold leading-snug text-heading">
             {e.title}
-            {e.org && <span class="font-normal text-muted">, {e.org}</span>}
+            {e.org && <span class="font-normal italic">, {e.org}</span>}
           </h3>
-          <span class="text-sm text-muted whitespace-nowrap">{e.dates}</span>
+          {e.bullets && (
+            <div class="mt-3 space-y-2 text-default">
+              {e.bullets.map((b) => (
+                <p class="pl-5 -indent-5">{b}</p>
+              ))}
+            </div>
+          )}
         </div>
-        {e.bullets && (
-          <ul class="mt-2 list-disc pl-5 space-y-1 text-default">
-            {e.bullets.map((b) => (
-              <li>{b}</li>
-            ))}
-          </ul>
-        )}
       </li>
     ))
   }

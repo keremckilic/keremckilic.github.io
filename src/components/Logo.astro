@@ -1,9 +1,6 @@
 ---
-import { SITE } from 'astrowind:config';
+// The name appears once, in the page heading, so the header shows no logo text.
+// The link stays for screen readers and keyboard users.
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  {SITE?.name}
-</span>
+<span class="sr-only">Home</span>
