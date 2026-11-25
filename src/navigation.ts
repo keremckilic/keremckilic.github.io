@@ -6,9 +6,10 @@ export const headerData = {
     { text: 'Home', href: getPermalink('/') },
     { text: 'Experience', href: getPermalink('/experience') },
     { text: 'Research', href: getPermalink('/research') },
+    { text: 'Record Shelf', href: getPermalink('/record-shelf') },
   ],
 };
 
 export const footerData = {
-  footNote: `© ${new Date().getFullYear()} ${profile.name} · Built with <a class="underline" href="https://github.com/onwidget/astrowind">AstroWind</a>.`,
+  footNote: `© ${new Date().getFullYear()} ${profile.name}`,
 };

@@ -1,0 +1,34 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { records } from '~/data/records';
+
+const metadata = { title: 'Record Shelf', description: 'Albums I like.' };
+---
+
+<Layout metadata={metadata}>
+  <div class="mx-auto max-w-4xl px-4 md:px-6 pt-[12vh] pb-16 md:pb-24">
+    <h1 class="text-5xl md:text-7xl font-bold leading-none tracking-tight text-heading">Record Shelf</h1>
+
+    <ul class="mt-16 md:mt-24 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+      {
+        records.map((r) => (
+          <li>
+            {r.href ? (
+              <a
+                href={r.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${r.alt} on Spotify`}
+                class="block transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+              >
+                <img src={r.image} alt={r.alt} width="600" height="600" loading="lazy" class="block aspect-square w-full" />
+              </a>
+            ) : (
+              <img src={r.image} alt={r.alt} width="600" height="600" loading="lazy" class="block aspect-square w-full" />
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

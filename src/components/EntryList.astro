@@ -12,13 +12,12 @@ const { entries } = Astro.props;
   {
     entries.map((e) => (
       <li class="grid gap-y-1 md:grid-cols-[10rem_1fr] md:gap-x-8">
-        <span class="text-sm text-muted md:pt-1.5">{e.dates}</span>
+        <span class="type-date md:pt-1">{e.dates}</span>
         <div>
           {/* Hanging indent: first line flush left, wrapped lines indented. */}
-          <h3 class="pl-5 -indent-5 text-xl font-bold leading-snug text-heading">
-            {e.title}
-            {e.org && <span class="font-normal italic">, {e.org}</span>}
-          </h3>
+          <h3 class="type-title pl-5 -indent-5">{e.title}</h3>
+          {/* Affiliation on its own line, so a long title never splits it across two lines. */}
+          {e.org && <p class="mt-0.5 pl-5 -indent-5 italic">{e.org}</p>}
           {e.bullets && (
             <div class="mt-3 space-y-2 text-default">
               {e.bullets.map((b) => (

@@ -10,7 +10,7 @@ const metadata = {
 
 // Section grid: a narrow label column on the left, content on the right.
 const row = 'grid gap-y-3 md:grid-cols-[10rem_1fr] md:gap-x-8';
-const label = 'text-xl font-bold leading-tight text-heading';
+const label = 'type-title';
 ---
 
 <Layout metadata={metadata}>
@@ -40,14 +40,16 @@ const label = 'text-xl font-bold leading-tight text-heading';
         </div>
       </section>
 
+      <!-- News: the date runs inline before each item, so the label sits beside the list
+           like in the other sections and all text starts on the same vertical line. -->
       <section id="news" class={`${row} scroll-mt-20`}>
-        <h2 class={label}>Recent news</h2>
+        <h2 class={label}>News</h2>
         <ul class="space-y-3">
           {
             news.map((n) => (
-              <li class="grid gap-x-6 sm:grid-cols-[6.5rem_1fr]">
-                <span class="text-sm text-muted sm:pt-1">{n.date}</span>
-                <span class="text-default">{n.text}</span>
+              <li class="text-default">
+                <span class="type-date mr-2">{n.date}</span>{' '}
+                {n.text}
               </li>
             ))
           }
@@ -55,7 +57,7 @@ const label = 'text-xl font-bold leading-tight text-heading';
       </section>
 
       <section id="contact" class={`${row} scroll-mt-20`}>
-        <h2 class={label}>Reaching out</h2>
+        <h2 class={label}>Get in touch</h2>
         <div>
           <p class="text-default">
             I am happy to hear from people working on control, optimization and learning. The easiest way to reach me is
