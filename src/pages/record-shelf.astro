@@ -21,10 +21,24 @@ const metadata = { title: 'Record Shelf', description: 'Albums I like.' };
                 aria-label={`${r.alt} on Spotify`}
                 class="block transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
               >
-                <img src={r.image} alt={r.alt} width="600" height="600" loading="lazy" class="block aspect-square w-full" />
+                <img
+                  src={r.image}
+                  alt={r.alt}
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  class="block aspect-square w-full"
+                />
               </a>
             ) : (
-              <img src={r.image} alt={r.alt} width="600" height="600" loading="lazy" class="block aspect-square w-full" />
+              <img
+                src={r.image}
+                alt={r.alt}
+                width="600"
+                height="600"
+                loading="lazy"
+                class="block aspect-square w-full"
+              />
             )}
           </li>
         ))

@@ -1,7 +1,7 @@
 site:
   name: Kerem Kılıç
-  # Placeholder: set to the real URL (e.g. https://<username>.github.io) before deploying.
-  site: 'https://example.com'
+  # Public address (GitHub Pages user site). Change this if you move to a custom domain.
+  site: 'https://keremckilic.github.io'
   base: '/'
   trailingSlash: false
 

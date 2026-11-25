@@ -53,17 +53,13 @@ export const experience: Entry[] = [
     org: 'Hexagon Robotics',
     dates: 'Mar 2026 – Sep 2026',
   },
-  { title: 'Teaching Assistant',
-    org: 'Integrated Systems Laboratory, ETH Zurich',
-    dates: 'Sep 2024 – Jan 2026' },
+  { title: 'Teaching Assistant', org: 'Integrated Systems Laboratory, ETH Zurich', dates: 'Sep 2024 – Jan 2026' },
   {
     title: 'Engineering Intern',
     org: 'Arke Telekom',
     dates: 'Jul 2024 – Aug 2024',
   },
-  { title: 'Teaching Assistant',
-    org: 'Laboratory of Wave Engineering, EPFL',
-    dates: 'Sep 2023 – Jan 2024' },
+  { title: 'Teaching Assistant', org: 'Laboratory of Wave Engineering, EPFL', dates: 'Sep 2023 – Jan 2024' },
 ];
 
 export const research: Entry[] = [
